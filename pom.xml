@@ -125,6 +125,25 @@
                 </plugin>
                 
                 <plugin>
+                    <groupId>org.apache.avro</groupId>
+                    <artifactId>avro-maven-plugin</artifactId>
+                    <version>1.7.5</version>
+                    <executions>
+                        <execution>
+                            <id>schema</id>
+                            <phase>generate-sources</phase>
+                            <goals>
+                                <goal>schema</goal>
+                            </goals>
+                            <configuration>
+                                <sourceDirectory>${project.basedir}/src/main/avro</sourceDirectory>
+                                <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                
+                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>2.3.2</version>
@@ -139,6 +158,7 @@
                         <target>${java.version}</target>
                         <compilerArgument>-parameters</compilerArgument>
                         <argLine>-Dfile.encoding=${project.build.sourceEncoding}</argLine>
+                        <debug>true</debug>
                     </configuration>
                 </plugin>
   			 
@@ -166,16 +186,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <debug>true</debug>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 
     <dependencies>
