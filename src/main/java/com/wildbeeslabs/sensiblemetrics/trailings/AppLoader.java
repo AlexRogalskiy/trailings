@@ -1,7 +1,6 @@
 package com.wildbeeslabs.sensiblemetrics.trailings;
 
 /**
- *
  * Main Trailings Application class
  *
  * @author Alex
